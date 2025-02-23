@@ -84,6 +84,49 @@
             z-index: 1;
         }
 
+        .mock-browser {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            height: 500px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .browser-header {
+            background: #ddd;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .red { background: #ff5f57; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        iframe {
+            width: 100%;
+            height: calc(100% - 30px);
+            border: none;
+        }
+
+
         .parallax-content {
             position: relative;
             z-index: 2; /* Ensure it appears above the overlay */
@@ -178,6 +221,26 @@
             </button>
         </div>
     </section>
+
+    <!--Parallax background-->
+    <div class="parallax">
+        <div class="mock-browser">
+            <div class="browser-header">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+            </div>
+            <iframe 
+                style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+                width="800" height="450" 
+                src="https://embed.figma.com/design/QhdxUhdqUf0NMTPeuFt8wq/Untitled?node-id=0-1&embed-host=share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    
 
     <!-- How It Works -->
     <section class="relative w-full h-[90vh] bg-gray-100 flex flex-col items-center justify-center">
