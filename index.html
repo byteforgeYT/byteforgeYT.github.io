@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taskination - Connect with Freelancers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("details").forEach((faq) => {
+                faq.addEventListener("toggle", function () {
+                    if (this.open) {
+                        this.animate([
+                            { opacity: 0, transform: "translateY(-10px)" },
+                            { opacity: 1, transform: "translateY(0)" }
+                        ], { duration: 300, easing: "ease-out" });
+                    }
+                });
+            });
+        });
+    </script>
+    
     <style>
         :root {
             --text: #fbf3e4;
@@ -40,6 +56,14 @@
             background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better readability */
             padding: 2rem;
             border-radius: 10px;
+        }
+
+        details summary {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        details[open] summary {
+            color: var(--primary);
         }
        
     </style>
