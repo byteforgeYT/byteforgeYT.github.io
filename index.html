@@ -5,64 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taskination - Connect with Freelancers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --text: #fbf3e4;
+            --background: #120b02;
+            --primary: #9e6710;
+            --secondary: #117e18;
+            --accent: #16a772;
+            --dark-text: #1a202c;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background);
+            color: var(--text);
+        }
+        .glowing-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .glowing-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 80%);
+            animation: glow 6s infinite alternate;
+        }
+        @keyframes glow {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-[var(--background)] text-[var(--text)]">
     
     <!-- Hero Section -->
-    <section class="text-center py-20 bg-blue-600 text-white">
+    <section class="text-center py-20 bg-[var(--primary)] text-white">
         <h1 class="text-5xl font-bold">Find & Post Bounties Easily</h1>
         <p class="mt-4 text-lg">Taskination connects freelancers and clients through bounties.</p>
-        <button class="mt-6 px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold">Get Started</button>
+        <button class="mt-6 px-6 py-3 bg-white text-[var(--primary)] rounded-lg font-semibold hover:bg-gray-300 transition">Get Started</button>
     </section>
 
     <!-- How It Works -->
     <section class="py-16 text-center">
         <h2 class="text-3xl font-bold">How It Works</h2>
         <div class="mt-6 flex justify-center space-x-8">
-            <div class="bg-white p-6 shadow-md rounded-lg w-1/4">
+            <div class="bg-white p-6 shadow-md rounded-lg w-1/4 text-[var(--dark-text)]">
                 <h3 class="text-xl font-semibold">1. Post a Bounty</h3>
-                <p class="mt-2 text-gray-600">Clients post tasks with rewards.</p>
+                <p class="mt-2">Clients post tasks with rewards.</p>
             </div>
-            <div class="bg-white p-6 shadow-md rounded-lg w-1/4">
+            <div class="bg-white p-6 shadow-md rounded-lg w-1/4 text-[var(--dark-text)]">
                 <h3 class="text-xl font-semibold">2. Freelancers Apply</h3>
-                <p class="mt-2 text-gray-600">Freelancers take on tasks they like.</p>
+                <p class="mt-2">Freelancers take on tasks they like.</p>
             </div>
-            <div class="bg-white p-6 shadow-md rounded-lg w-1/4">
+            <div class="bg-white p-6 shadow-md rounded-lg w-1/4 text-[var(--dark-text)]">
                 <h3 class="text-xl font-semibold">3. Get Work Done</h3>
-                <p class="mt-2 text-gray-600">Clients review and approve work.</p>
+                <p class="mt-2">Clients review and approve work.</p>
             </div>
         </div>
     </section>
 
-    <!-- Featured Bounties -->
-    <section class="py-16 bg-gray-200 text-center">
-        <h2 class="text-3xl font-bold">Featured Bounties</h2>
-        <div class="mt-6 flex justify-center space-x-8">
-            <div class="bg-white p-6 shadow-md rounded-lg w-1/4">
-                <h3 class="text-xl font-semibold">Web Design Project</h3>
-                <p class="mt-2 text-gray-600">$500 | Due in 7 days</p>
+    <!-- FAQ Section -->
+    <section class="py-16 glowing-bg text-center">
+        <h2 class="text-3xl font-bold">Frequently Asked Questions</h2>
+        <div class="mt-6 w-3/4 mx-auto">
+            <div class="bg-white p-4 shadow-md rounded-lg mb-4 text-[var(--dark-text)]">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleFAQ('faq1')">What is Taskination?</button>
+                <p id="faq1" class="hidden mt-2">Taskination is a platform that connects freelancers with clients through bounties.</p>
             </div>
-            <div class="bg-white p-6 shadow-md rounded-lg w-1/4">
-                <h3 class="text-xl font-semibold">Logo Creation</h3>
-                <p class="mt-2 text-gray-600">$200 | Due in 3 days</p>
+            <div class="bg-white p-4 shadow-md rounded-lg mb-4 text-[var(--dark-text)]">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleFAQ('faq2')">How do I post a bounty?</button>
+                <p id="faq2" class="hidden mt-2">Simply sign up, navigate to the 'Post a Bounty' section, and fill in the details.</p>
             </div>
-            <div class="bg-white p-6 shadow-md rounded-lg w-1/4">
-                <h3 class="text-xl font-semibold">App Development</h3>
-                <p class="mt-2 text-gray-600">$1000 | Due in 14 days</p>
+            <div class="bg-white p-4 shadow-md rounded-lg text-[var(--dark-text)]">
+                <button class="w-full text-left font-semibold text-lg" onclick="toggleFAQ('faq3')">Is Taskination free to use?</button>
+                <p id="faq3" class="hidden mt-2">Yes! Basic usage is free, with premium features available for advanced users.</p>
             </div>
         </div>
     </section>
 
     <!-- Call to Action -->
-    <section class="py-16 text-center bg-blue-600 text-white">
+    <section class="py-16 text-center bg-[var(--accent)] text-white">
         <h2 class="text-3xl font-bold">Join Taskination Today</h2>
-        <button class="mt-6 px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold">Sign Up Now</button>
+        <button class="mt-6 px-6 py-3 bg-white text-[var(--accent)] rounded-lg font-semibold hover:bg-gray-300 transition">Sign Up Now</button>
     </section>
 
     <!-- Footer -->
     <footer class="py-6 bg-gray-900 text-white text-center">
         <p>&copy; 2025 Taskination. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleFAQ(id) {
+            var element = document.getElementById(id);
+            element.classList.toggle("hidden");
+        }
+    </script>
     
 </body>
 </html>
