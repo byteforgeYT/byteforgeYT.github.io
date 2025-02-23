@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskination Dashboard</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 60px;
+            background: #3c3c3c;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .sidebar i {
+            font-size: 20px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .sidebar img.profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-top: auto;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #3c3c3c;
+            color: white;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .top-nav .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .top-nav img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-box i {
+            color: gray;
+        }
+
+        /* Content */
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .content h2 {
+            margin-bottom: 10px;
+        }
+
+        .grid {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            width: 120px;
+            height: 80px;
+            background: lightgray;
+            border-radius: 5px;
+        }
+
+        /* Task Section */
+        .tasks {
+            background: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #e0e0e0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .task .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .task .progress-bar {
+            flex-grow: 1;
+            background: gray;
+            height: 10px;
+            border-radius: 5px;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .task .progress-bar .progress {
+            height: 100%;
+            background: limegreen;
+            border-radius: 5px;
+        }
+
+        .task .edit {
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-dollar-sign"></i>
+        <i class="fas fa-bookmark"></i>
+        <i class="fas fa-list"></i>
+        <i class="fas fa-tasks"></i>
+        <img src="profile.jpg" alt="Profile" class="profile">
+    </div>
+
+    <div class="main-container">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="logo">
+                <img src="logo.svg" alt="Logo">
+                askination
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <i class="fas fa-plus-circle"></i>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <h2>Hello User</h2>
+
+            <h3>Recommendations</h3>
+            <div class="grid">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+
+            <h3>Analytics</h3>
+            <div class="grid">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+
+            <h3>Your Tasks</h3>
+            <div class="tasks">
+                <div class="task">
+                    <i class="fas fa-image icon"></i>
+                    <span>Illustrate Graphic Novel</span>
+                    <span>John Doe</span>
+                    <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                    <span>75%</span>
+                    <i class="fas fa-edit edit"></i>
+                </div>
+                <div class="task">
+                    <i class="fas fa-image icon"></i>
+                    <span>Illustrate Graphic Novel</span>
+                    <span>John Doe</span>
+                    <div class="progress-bar"><div class="progress" style="width: 20%;"></div></div>
+                    <span>20%</span>
+                    <i class="fas fa-edit edit"></i>
+                </div>
+                <div class="task">
+                    <i class="fas fa-image icon"></i>
+                    <span>Illustrate Graphic Novel</span>
+                    <span>John Doe</span>
+                    <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                    <span>50%</span>
+                    <i class="fas fa-edit edit"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
