@@ -66,7 +66,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh; /* Full viewport height */
+            height: 80vh; /* Full viewport height */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -89,16 +89,60 @@
         }
        
     </style>
+
+    <style>
+        .animated-text {
+            height: 1em; /* Keep height fixed to prevent layout shift */
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .animated-text span {
+            display: block;
+            animation: text-rotate 8s infinite;
+        }
+
+        @keyframes text-rotate {
+            0% { transform: translateY(0%); }
+            25% { transform: translateY(-100%); }
+            50% { transform: translateY(-200%); }
+            75% { transform: translateY(-300%); }
+            100% { transform: translateY(0%); }
+        }
+    </style>
+
+    <!-- JavaScript for Dynamic Text -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const words = ["Freelancers", "Talent", "Animators", "Writers"];
+            const textContainer = document.querySelector(".animated-text");
+
+            // Create spans for each word
+            words.forEach(word => {
+                let span = document.createElement("span");
+                span.textContent = word;
+                textContainer.appendChild(span);
+            });
+        });
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[var(--background)] text-[var(--text)]">
     
     <!-- Hero Section with Parallax -->
-    <section class="parallax">
-        <div class="parallax-content">
-            <h1 class="text-5xl font-bold">Find & Post Bounties Easily</h1>
+    <section class="parallax relative">
+        <div class="parallax-content text-left">
+            <h1 class="text-5xl font-bold">
+                Connecting Clients with 
+                <span class="inline-block relative text-[var(--primary)] animated-text"></span>
+            </h1>
             <p class="mt-4 text-lg">Taskination connects freelancers and clients through bounties.</p>
-            <button class="mt-6 px-6 py-3 bg-white text-[var(--primary)] rounded-lg font-semibold hover:bg-gray-300 transition">Get Started</button>
+            <button class="mt-6 px-6 py-3 bg-white text-[var(--primary)] rounded-lg font-semibold hover:bg-gray-300 transition">
+                Get Started
+            </button>
         </div>
     </section>
 
