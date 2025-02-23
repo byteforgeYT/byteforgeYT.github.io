@@ -13,41 +13,47 @@
             --secondary: #117e18;
             --accent: #16a772;
             --dark-text: #1a202c;
+            --bg-img: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
         }
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--background);
             color: var(--text);
         }
-        .glowing-bg {
-            position: relative;
-            overflow: hidden;
+
+         /* Parallax Effect for Hero Section */
+        .parallax {
+            background-image: var(--bg-img);
+            background-attachment: fixed; /* Creates the parallax effect */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-        .glowing-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 80%);
-            animation: glow 6s infinite alternate;
+
+        /* Ensure content inside the parallax section is not affected */
+        .parallax-content {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better readability */
+            padding: 2rem;
+            border-radius: 10px;
         }
-        @keyframes glow {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.8; }
-        }
+       
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[var(--background)] text-[var(--text)]">
     
-    <!-- Hero Section -->
-    <section class="text-center py-20 bg-[var(--primary)] text-white">
-        <h1 class="text-5xl font-bold">Find & Post Bounties Easily</h1>
-        <p class="mt-4 text-lg">Taskination connects freelancers and clients through bounties.</p>
-        <button class="mt-6 px-6 py-3 bg-white text-[var(--primary)] rounded-lg font-semibold hover:bg-gray-300 transition">Get Started</button>
+    <!-- Hero Section with Parallax -->
+    <section class="parallax">
+        <div class="parallax-content">
+            <h1 class="text-5xl font-bold">Find & Post Bounties Easily</h1>
+            <p class="mt-4 text-lg">Taskination connects freelancers and clients through bounties.</p>
+            <button class="mt-6 px-6 py-3 bg-white text-[var(--primary)] rounded-lg font-semibold hover:bg-gray-300 transition">Get Started</button>
+        </div>
     </section>
 
     <!-- How It Works -->
@@ -70,20 +76,26 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 glowing-bg text-center">
+    <section class="py-16 text-center">
         <h2 class="text-3xl font-bold">Frequently Asked Questions</h2>
         <div class="mt-6 w-3/4 mx-auto">
             <div class="bg-white p-4 shadow-md rounded-lg mb-4 text-[var(--dark-text)]">
-                <button class="w-full text-left font-semibold text-lg" onclick="toggleFAQ('faq1')">What is Taskination?</button>
-                <p id="faq1" class="hidden mt-2">Taskination is a platform that connects freelancers with clients through bounties.</p>
+                <details>
+                    <summary class="font-semibold cursor-pointer">What is Taskination?</summary>
+                    <p class="mt-2">Taskination is a platform that connects freelancers with clients through bounties.</p>
+                </details>
             </div>
             <div class="bg-white p-4 shadow-md rounded-lg mb-4 text-[var(--dark-text)]">
-                <button class="w-full text-left font-semibold text-lg" onclick="toggleFAQ('faq2')">How do I post a bounty?</button>
-                <p id="faq2" class="hidden mt-2">Simply sign up, navigate to the 'Post a Bounty' section, and fill in the details.</p>
+                <details>
+                    <summary class="font-semibold cursor-pointer">What are Bounties?</summary>
+                    <p class="mt-2">Bounties are tasks posted by clients for freelancers to complete. Clients can set thier own prices and choose from a variety of qualified freelancers.</p>
+                </details>
             </div>
-            <div class="bg-white p-4 shadow-md rounded-lg text-[var(--dark-text)]">
-                <button class="w-full text-left font-semibold text-lg" onclick="toggleFAQ('faq3')">Is Taskination free to use?</button>
-                <p id="faq3" class="hidden mt-2">Yes! Basic usage is free, with premium features available for advanced users.</p>
+            <div class="bg-white p-4 shadow-md rounded-lg mb-4 text-[var(--dark-text)]">
+                <details>
+                    <summary class="font-semibold cursor-pointer">Is Taskination free?</summary>
+                    <p class="mt-2">Yes! Taskination is completely free to use. However, in order to create a bounty, you must deposit the costs upfront to help minimize fraud.</p>
+                </details>
             </div>
         </div>
     </section>
@@ -99,12 +111,7 @@
         <p>&copy; 2025 Taskination. All rights reserved.</p>
     </footer>
 
-    <script>
-        function toggleFAQ(id) {
-            var element = document.getElementById(id);
-            element.classList.toggle("hidden");
-        }
-    </script>
+
     
 </body>
 </html>
