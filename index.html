@@ -6,6 +6,8 @@
     <title>Taskination - Connect with Freelancers</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll("details").forEach((faq) => {
@@ -89,7 +91,7 @@
             width: 80%;
             max-width: 900px;
             height: 500px;
-            background: white;
+            background: rgba(255, 255, 255, 0);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -97,11 +99,15 @@
         }
 
         .browser-header {
-            background: #ddd;
+            background: rgba(221, 221, 221, 0.7);  /* Semi-transparent gray */
+            backdrop-filter: blur(10px);  /* Blurs the content behind the header */
             height: 30px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 0 10px;
+            border-radius: 5px 5px 0 0;  /* Optional: rounds the corners for a smoother effect */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Adds subtle shadow for depth */
         }
 
         .dots {
@@ -120,9 +126,36 @@
         .yellow { background: #ffbd2e; }
         .green { background: #27c93f; }
 
+        /* Mock Search Bar */
+        /* Mock Search Box */
+        .search-box {
+            background: #f0f0f0;  /* Light gray background for the search box */
+            border-radius: 20px;  /* Rounded corners for the search box */
+            padding: 5px 15px;  /* Padding around the search input */
+            margin-top: 4px;  /* Space around the top */
+            margin-bottom: 4px;  /* Space around the bottom */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;  /* Allows search box to grow and center automatically */
+        }
+
+        /* Search Input */
+        .url-bar {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);  /* Faded black text */
+            text-align: center;
+            font-weight: bold;
+            cursor: default;
+            width: 200px;  /* Adjust the width of the URL bar */
+        }
+
         iframe {
             width: 100%;
-            height: calc(100% - 30px);
+            height: calc(100%);
             border: none;
         }
 
@@ -231,6 +264,10 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                 </div>
+                <div class="search-box">
+                    <input type="search" class="url-bar" value="taskination.com" readonly>
+                </div>
+                <div></div>
             </div>
             <iframe src="mockapp.html"></iframe>
         </div>
