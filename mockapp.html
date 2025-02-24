@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taskination Dashboard</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c615bce420.js" crossorigin="anonymous"></script>
     <style>
         /* General Styles */
         * {
@@ -15,34 +15,11 @@
         }
 
         body {
-            display: flex;
+           
             height: 100vh;
             background: #f4f4f4;
         }
 
-        /* Sidebar */
-        .sidebar {
-            width: 60px;
-            background: #3c3c3c;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .sidebar i {
-            font-size: 20px;
-            margin: 20px 0;
-            cursor: pointer;
-        }
-
-        .sidebar img.profile {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-top: auto;
-        }
 
         /* Top Navigation */
         .top-nav {
@@ -87,8 +64,68 @@
             color: gray;
         }
 
+        .main-container {
+            display: flex;
+            height: 100%;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 60px;
+            background: #6b6b6b;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            height: 100vh;
+        }
+
+        .sidebar i {
+            font-size: 20px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        /* Moves the profile icon to the bottom */
+        .profile-container {
+            margin-top: auto; /* Pushes it to the bottom */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 15px;
+        }
+
+        .profile-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-top: auto;
+            border: 3px solid white;
+        }
+
+        /* Ensure profile image fits */
+        .profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Hide placeholder by default */
+        #profile-icon {
+            display: none;
+        }
+
         /* Content */
         .content {
+           
             flex-grow: 1;
             padding: 20px;
         }
@@ -155,29 +192,40 @@
     </style>
 </head>
 <body>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <i class="fas fa-bars"></i>
-        <i class="fas fa-dollar-sign"></i>
-        <i class="fas fa-bookmark"></i>
-        <i class="fas fa-list"></i>
-        <i class="fas fa-tasks"></i>
-        <img src="profile.jpg" alt="Profile" class="profile">
+     <!-- Top Navigation -->
+     <div class="top-nav">
+        <div class="logo">
+            <img src="logo.svg" alt="Logo">
+            askination
+        </div>
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search">
+        </div>
+        <i class="fas fa-plus-circle"></i>
     </div>
+    
 
     <div class="main-container">
-        <!-- Top Navigation -->
-        <div class="top-nav">
-            <div class="logo">
-                <img src="logo.svg" alt="Logo">
-                askination
+       
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-dollar-sign"></i>
+            <i class="fas fa-bookmark"></i>
+            <i class="fa-solid fa-chart-simple"></i>
+            <i class="fa-regular fa-message"></i>
+            
+
+             <!-- Profile container -->
+            <div class="profile-container">
+                <img class="profile" src="profile.jpg" alt="Profile" onerror="this.style.display='none'; document.getElementById('profile-icon').style.display='flex';">
+                <div id="profile-icon" class="profile-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search">
-            </div>
-            <i class="fas fa-plus-circle"></i>
+            
         </div>
 
         <!-- Content -->
@@ -228,6 +276,7 @@
             </div>
 
         </div>
+
     </div>
 
 </body>
