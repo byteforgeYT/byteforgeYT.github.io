@@ -136,16 +136,12 @@
 
         /* Mock Search Bar */
         /* Mock Search Box */
+        
+
         .search-box {
-            background: transparent;  /* Light gray background for the search box */
-            border-radius: 20px;  /* Rounded corners for the search box */
-            padding: 5px 15px;  /* Padding around the search input */
-            margin-top: 4px;  /* Space around the top */
-            margin-bottom: 4px;  /* Space around the bottom */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;  /* Allows search box to grow and center automatically */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* Search Input */
@@ -162,6 +158,7 @@
         }
 
         iframe {
+            background-color: #eff1e6;
             width: 100%;
             height: calc(100%);
             border: none;

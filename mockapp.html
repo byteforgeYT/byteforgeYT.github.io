@@ -7,18 +7,12 @@
     <script src="https://kit.fontawesome.com/c615bce420.js" crossorigin="anonymous"></script>
     <style>
         /* General Styles */
-        * {
+        html, body {
+            font-family: 'Poppins', sans-serif;
+            height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            height: 100vh;
-            width: 100vw;  /* Ensures the body takes up the entire viewport width */
-            
-            background: #f4f4f4;
         }
 
         /* Top Navigation */
@@ -29,7 +23,7 @@
             background: #3c3c3c;
             color: white;
             padding: 15px;
-            width: 100%;
+            
         }
 
         .top-nav .logo {
@@ -43,6 +37,12 @@
             width: 30px;
             height: 30px;
             margin-right: 5px;
+        }
+
+        .top-nav .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .search-box {
@@ -65,11 +65,11 @@
         }
 
         .main-container {
+
             display: flex;
-            height: 100%;
-            width: 100%;  /* Make the main container fill the entire viewport */
+            height: calc(100% - 60px);  /* Subtract the height of the top navigation */ 
             overflow: hidden; /* Prevents the content inside from overflowing */
-            flex-wrap: wrap;  /* Allows flex items to wrap when space is tight */
+            
         }
         
         
@@ -82,7 +82,7 @@
             flex-direction: column;
             align-items: center;
             padding: 15px 0;
-            height: 100%;
+            
         }
 
         .sidebar i {
@@ -97,7 +97,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 15px;
+            padding-bottom: 5px;
         }
 
         .profile-placeholder {
@@ -205,11 +205,14 @@
             <img src="logo.svg" alt="Logo">
             askination
         </div>
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search">
+        <div class="actions">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <i class="fas fa-plus-circle"></i>
         </div>
-        <i class="fas fa-plus-circle"></i>
+        
     </div>
     
 
